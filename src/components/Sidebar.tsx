@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {Box, Flex, Heading, Text} from '@chakra-ui/react'
+import {allTags} from '../constants/contants'
+import Tag from './ui/Tag'
 
 export default function Sidebar() {
   return (
@@ -20,7 +22,19 @@ export default function Sidebar() {
           Feedback Board
         </Text>
       </Flex>
-      <Box w="255px" h="137px" borderRadius="10px" px="24px"></Box>
+      <Flex
+        alignItems={'center'}
+        flexWrap={'wrap'}
+        gap="14px"
+        w="255px"
+        borderRadius="10px"
+        p="24px"
+        bg="white"
+      >
+        {allTags.map(tag => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
+      </Flex>
       <Box w="255px" h="137px" borderRadius="10px" px="24px"></Box>
     </Flex>
   )
