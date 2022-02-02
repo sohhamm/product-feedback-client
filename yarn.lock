@@ -765,6 +765,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/jost@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/jost/-/jost-4.5.2.tgz#89b85d1ecc3c5c776f84998ff5e2557e77b5764b"
+  integrity sha512-lfOCdNjB004ALIpdlrnYg0rhIDa0H75XzV3+XChXe8BuhHcz4WzyzBlBu2zPZA+o/8crarmnClH6TDWitq3Dxg==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.3.tgz#f2564c744b387775b436418491f15fce6601f63e"
