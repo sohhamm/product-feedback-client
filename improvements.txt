@@ -1,0 +1,2 @@
+1. change scroll bar css
+2. when comments is zero add opacity for suggestions card

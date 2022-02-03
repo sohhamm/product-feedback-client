@@ -5,6 +5,8 @@ interface BtnProps {
   colorScheme?: string
   src?: string
   hoverColor?: string
+  mb?: string
+  onClick?: () => void
 }
 
 export default function Btn({
@@ -12,6 +14,8 @@ export default function Btn({
   colorScheme = 'purple',
   src,
   hoverColor,
+  mb,
+  onClick,
 }: BtnProps) {
   return (
     <Button
@@ -21,10 +25,12 @@ export default function Btn({
       w="158px"
       pt="13px"
       pb="11px"
+      mb={mb ?? ''}
       fontWeight={700}
       _hover={{
         bg: hoverColor,
       }}
+      onClick={onClick}
     >
       {src && (
         <Image src={src} alt="icon" mr="5px" display={'inline'} mt="2px" />
