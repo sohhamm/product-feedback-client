@@ -35,10 +35,19 @@ export default function SortMenu() {
             fontSize="14px"
           >
             <Flex>
-              <Text color={'lightGray'} opacity={0.75} fontWeight={'normal'}>
+              <Text
+                opacity={0.75}
+                fontWeight={'normal'}
+                // _hover={{color: 'lightGray'}}
+              >
                 Sort by :
               </Text>
-              <Text color={'lightGray'} fontWeight={'bold'} ml="5px">
+              <Text
+                fontWeight={'bold'}
+                ml="5px"
+                // _hover={{color: 'lightGray.400'}}
+                // color="lightGray"
+              >
                 {activeSort}
               </Text>
             </Flex>

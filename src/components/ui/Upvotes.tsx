@@ -1,7 +1,20 @@
 import UpIcon from '../../../public/assets/shared/icon-arrow-up.svg'
 import {Flex, Image, Text} from '@chakra-ui/react'
+import {MouseEventHandler} from 'react'
 
-export default function Upvotes({upvotes}: {upvotes: number}) {
+interface UpvotesProps {
+  upvotes: number
+  onClick?: MouseEventHandler<HTMLDivElement>
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>
+}
+
+export default function Upvotes({
+  upvotes,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}: UpvotesProps) {
   return (
     <Flex
       direction={'column'}
@@ -18,6 +31,9 @@ export default function Upvotes({upvotes}: {upvotes: number}) {
         cursor: 'pointer',
       }}
       alignSelf={'flex-start'}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <Image src={UpIcon.src} alt="arrow-up" />
       <Text
