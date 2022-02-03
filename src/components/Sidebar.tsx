@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Box, Flex, Heading, Text} from '@chakra-ui/react'
+import {Box, chakra, Flex, Heading, Text} from '@chakra-ui/react'
 import {allTags} from '../constants/constants'
 import Tag from './ui/Tag'
 import Link from 'next/link'
