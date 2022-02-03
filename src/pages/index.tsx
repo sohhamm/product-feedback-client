@@ -9,19 +9,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const res = await getFeedbacks()
   const data = JSON.parse(JSON.stringify(res))
   return {
-    props: {productRequests: data.productRequests},
+    props: {suggestions: data.productRequests},
   }
 }
 
-const Home = ({productRequests}: {productRequests: any}) => {
-  console.log(productRequests)
+const Home = ({suggestions}: {suggestions: any}) => {
   return (
     <Grid templateColumns="1fr 3.24fr" gap="30px" mx="auto">
       <Box as="aside" w="100%" h="100%">
         <Sidebar />
       </Box>
       <Box as="main" w="100%" h="100%">
-        <Suggestions />
+        <Suggestions suggestions={suggestions} />
       </Box>
     </Grid>
   )

@@ -1,24 +1,49 @@
 import {useUIStore} from '../../store/ui'
 import {Box} from '@chakra-ui/react'
 
-export default function Tag({children}: {children: string}) {
+export default function Tag({
+  children,
+  isViewOnly,
+}: {
+  children: string
+  isViewOnly?: boolean
+}) {
   const activeTag = useUIStore(state => state.activeTag)
   const setActiveTag = useUIStore(state => state.setActiveTag)
   const isSelected = activeTag === children
+
+  const handleClick = () => {
+    if (isViewOnly) return
+    setActiveTag(children)
+  }
   return (
     <Box
+      w="fit-content"
+      textTransform={'capitalize'}
       px="16px"
       py="5px"
-      color={isSelected ? 'white' : 'darkblue'}
-      bg={isSelected ? 'darkBlue.400' : 'lightGray.400'}
+      color={
+        isViewOnly ? 'darkBlue.400' : isSelected ? 'white' : 'darkBlue.400'
+      }
+      bg={
+        isViewOnly
+          ? 'lightGray.500'
+          : isSelected
+          ? 'darkBlue.400'
+          : 'lightGray.400'
+      }
       fontWeight={'semibold'}
       fontSize={'13px'}
       borderRadius={'12px'}
-      _hover={{
-        bg: isSelected ? '' : '#CFD7FF',
-        cursor: 'pointer',
-      }}
-      onClick={() => setActiveTag(children)}
+      _hover={
+        isViewOnly
+          ? {}
+          : {
+              bg: isSelected ? '' : '#CFD7FF',
+              cursor: 'pointer',
+            }
+      }
+      onClick={handleClick}
     >
       {children}
     </Box>

@@ -4,8 +4,13 @@ import PlusIcon from '../../../public/assets/shared/icon-plus.svg'
 import IllustrationIcon from '../../../public/assets/suggestions/icon-suggestions.svg'
 import {Flex, Image, Text} from '@chakra-ui/react'
 import SortMenu from '../ui/SortMenu'
+import SuggestionCard from '../ui/SuggestionCard'
 
-export default function Suggestions() {
+interface SuggestionsProps {
+  suggestions: any
+}
+
+export default function Suggestions({suggestions}: SuggestionsProps) {
   return (
     <Flex w="100%" flexDir={'column'}>
       <Flex
@@ -33,6 +38,12 @@ export default function Suggestions() {
         <Btn src={PlusIcon.src} hoverColor="#C75AF6">
           Add Feedback
         </Btn>
+      </Flex>
+
+      <Flex direction={'column'} w="100%" rowGap={'20px'} mt="24px">
+        {suggestions.map((suggestion: any) => (
+          <SuggestionCard suggestion={suggestion} key={suggestion.id} />
+        ))}
       </Flex>
     </Flex>
   )
