@@ -7,15 +7,19 @@ interface BtnProps {
   hoverColor?: string
   mb?: string
   onClick?: () => void
+  variant?: string
+  color?: string
 }
 
 export default function Btn({
   children,
   colorScheme = 'purple',
+  color,
   src,
   hoverColor,
   mb,
   onClick,
+  variant = 'solid',
 }: BtnProps) {
   return (
     <Button
@@ -29,8 +33,11 @@ export default function Btn({
       fontWeight={700}
       _hover={{
         bg: hoverColor,
+        textDecor: variant === 'link' ? 'underline' : 'none',
       }}
       onClick={onClick}
+      variant={variant}
+      color={color ?? 'white'}
     >
       {src && (
         <Image src={src} alt="icon" mr="5px" display={'inline'} mt="2px" />

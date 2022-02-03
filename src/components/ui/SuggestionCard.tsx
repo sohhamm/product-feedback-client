@@ -6,7 +6,13 @@ import {useRouter} from 'next/router'
 import {Flex, Heading, Image, Text} from '@chakra-ui/react'
 import {useUIStore} from '../../store/ui'
 
-export default function SuggestionCard({suggestion}: {suggestion: any}) {
+export default function SuggestionCard({
+  suggestion,
+  isViewOnly,
+}: {
+  suggestion: any
+  isViewOnly?: boolean
+}) {
   const [headingColor, setHeadingColor] = useState('navyBlue2.400')
   const router = useRouter()
 
@@ -27,9 +33,9 @@ export default function SuggestionCard({suggestion}: {suggestion: any}) {
       px="32px"
       py="28px"
       borderRadius={'10px'}
-      onClick={handleGoToDetails}
+      onClick={isViewOnly ? () => {} : handleGoToDetails}
       _hover={{
-        cursor: 'pointer',
+        cursor: isViewOnly ? '' : 'pointer',
       }}
       onMouseEnter={() => setHeadingColor('darkBlue.400')}
       onMouseLeave={() => setHeadingColor('navyBlue2.400')}
@@ -43,7 +49,12 @@ export default function SuggestionCard({suggestion}: {suggestion: any}) {
         />
 
         <Flex direction={'column'} ml={['40px']} color="navyBlue2.400">
-          <Heading as="h2" fontSize={'18px'} mb="4px" color={headingColor}>
+          <Heading
+            as="h2"
+            fontSize={'18px'}
+            mb="4px"
+            color={isViewOnly ? 'navyBlue2.400' : headingColor}
+          >
             {suggestion.title}
           </Heading>
           <Text mb="12px" fontWeight={'16px'} color="#647196">
