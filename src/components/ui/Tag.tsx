@@ -10,7 +10,7 @@ export default function Tag({children}: {children: string}) {
       px="16px"
       py="5px"
       color={isSelected ? 'white' : 'darkblue'}
-      bg={isSelected ? 'purple.400' : 'lightGray.400'}
+      bg={isSelected ? 'darkBlue.400' : 'lightGray.400'}
       fontWeight={'semibold'}
       fontSize={'13px'}
       borderRadius={'12px'}
