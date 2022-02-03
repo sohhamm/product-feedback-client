@@ -1,8 +1,7 @@
-import {Flex, Heading, Image, Text} from '@chakra-ui/react'
-import React from 'react'
 import Upvotes from './Upvotes'
-import CommentIcon from '../../../public/assets/shared/icon-comments.svg'
 import Tag from './Tag'
+import CommentIcon from '../../../public/assets/shared/icon-comments.svg'
+import {Flex, Heading, Image, Text} from '@chakra-ui/react'
 
 export default function SuggestionCard({suggestion}: {suggestion: any}) {
   return (

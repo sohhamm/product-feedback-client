@@ -1,6 +1,5 @@
-import {Box, Flex, Image, Text} from '@chakra-ui/react'
-import React from 'react'
 import UpIcon from '../../../public/assets/shared/icon-arrow-up.svg'
+import {Flex, Image, Text} from '@chakra-ui/react'
 
 export default function Upvotes({upvotes}: {upvotes: number}) {
   return (

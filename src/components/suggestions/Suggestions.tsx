@@ -40,7 +40,18 @@ export default function Suggestions({suggestions}: SuggestionsProps) {
         </Btn>
       </Flex>
 
-      <Flex direction={'column'} w="100%" rowGap={'20px'} mt="24px">
+      <Flex
+        direction={'column'}
+        rowGap={'20px'}
+        mt="24px"
+        w="100%"
+        overflowY={'scroll'}
+        position="absolute"
+        top={'8%'}
+        bottom={0}
+        // scrollBehavior={'smooth'}
+        // overflowX={'hidden'}
+      >
         {suggestions.map((suggestion: any) => (
           <SuggestionCard suggestion={suggestion} key={suggestion.id} />
         ))}

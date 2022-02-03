@@ -19,7 +19,7 @@ const Home = ({suggestions}: {suggestions: any}) => {
       <Box as="aside" w="100%" h="100%">
         <Sidebar />
       </Box>
-      <Box as="main" w="100%" h="100%">
+      <Box as="main" w="100%" h="100vh" position={'relative'}>
         <Suggestions suggestions={suggestions} />
       </Box>
     </Grid>
