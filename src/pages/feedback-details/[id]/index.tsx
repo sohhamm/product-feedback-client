@@ -1,8 +1,9 @@
+import SuggestionCard from '../../../components/ui/SuggestionCard'
+import Comments from '../../../components/comments/Comments'
 import Btn from '../../../components/ui/Btn'
 import LeftIcon from '../../../../public/assets/shared/icon-arrow-left.svg'
-import {Flex, Heading} from '@chakra-ui/react'
+import {Flex} from '@chakra-ui/react'
 import {useRouter} from 'next/router'
-import SuggestionCard from '../../../components/ui/SuggestionCard'
 import {GetServerSideProps} from 'next/types'
 import {getFeedbacks} from '../../../service/feedback'
 
@@ -39,6 +40,8 @@ export default function FeedbackDetails({suggestion}: {suggestion: any}) {
       </Flex>
 
       <SuggestionCard suggestion={suggestion} isViewOnly />
+
+      {suggestion.comments && <Comments comments={suggestion.comments} />}
     </Flex>
   )
 }

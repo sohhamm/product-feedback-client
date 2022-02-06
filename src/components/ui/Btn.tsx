@@ -1,4 +1,4 @@
-import {Button, Image} from '@chakra-ui/react'
+import {Button, Image, StyleProps} from '@chakra-ui/react'
 
 interface BtnProps {
   children: string
@@ -9,6 +9,7 @@ interface BtnProps {
   onClick?: () => void
   variant?: string
   color?: string
+  props?: StyleProps
 }
 
 export default function Btn({
@@ -20,17 +21,18 @@ export default function Btn({
   mb,
   onClick,
   variant = 'solid',
+  props,
 }: BtnProps) {
   return (
     <Button
-      fontSize={'14px'}
+      fontSize={props?.fontSize ?? '14px'}
       colorScheme={colorScheme}
       borderRadius={'10px'}
-      w="158px"
+      w={props?.w ?? '158px'}
       pt="13px"
       pb="11px"
       mb={mb ?? ''}
-      fontWeight={700}
+      fontWeight={props?.fontWeight ?? 700}
       _hover={{
         bg: hoverColor,
         textDecor: variant === 'link' ? 'underline' : 'none',
