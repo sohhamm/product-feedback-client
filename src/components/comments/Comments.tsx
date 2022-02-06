@@ -1,11 +1,26 @@
 import {Box, Flex, Heading, Text} from '@chakra-ui/react'
 import Image from 'next/image'
-import React from 'react'
+import * as React from 'react'
+import ReplyComment from '../reply-comment/ReplyComment'
 import Btn from '../ui/Btn'
 import styles from './comments.module.css'
 
 export default function Comments({comments}: {comments: any}) {
+  const [replyIDs, setReplyIDs] = React.useState<number[]>([])
+
   console.log(comments)
+
+  const handleReply = (id: number) => {
+    setReplyIDs(oldState => {
+      if (oldState.includes(id)) return oldState
+      const ids = [...oldState, id]
+      return ids
+    })
+  }
+
+  console.log(replyIDs)
+
+  console.log(replyIDs.includes(3))
   return (
     <Box bg="white" borderRadius={'10px'} px="32px" pt="24px" pb="48px">
       <Heading as="h2" fontSize={['18px']} color="navyBlue2.400" mb={'28px'}>
@@ -43,6 +58,7 @@ export default function Comments({comments}: {comments: any}) {
               variant="link"
               color="darkBlue.400"
               props={{fontSize: '13px', fontWeight: 600, w: '60px'}}
+              onClick={() => handleReply(comment.id)}
             >
               Reply
             </Btn>
@@ -89,7 +105,12 @@ export default function Comments({comments}: {comments: any}) {
                   </Btn>
                 </Flex>
 
-                <Text fontSize={['15px']} color="darkGray.400" pl={['70px']}>
+                <Text
+                  as="div"
+                  fontSize={['15px']}
+                  color="darkGray.400"
+                  pl={['70px']}
+                >
                   <Text display="inline" color="purple.400" fontWeight={'bold'}>
                     @{reply.replyingTo}
                   </Text>{' '}
@@ -97,6 +118,10 @@ export default function Comments({comments}: {comments: any}) {
                 </Text>
               </Box>
             ))}
+
+            {replyIDs.includes(comment.id) && (
+              <ReplyComment commentID={comment.id} />
+            )}
           </Box>
         </Box>
       ))}

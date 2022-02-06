@@ -6,6 +6,7 @@ import {Flex} from '@chakra-ui/react'
 import {useRouter} from 'next/router'
 import {GetServerSideProps} from 'next/types'
 import {getFeedbacks} from '../../../service/feedback'
+import AddComment from '../../../components/add-comment/AddComment'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   const _res = await getFeedbacks()
@@ -28,6 +29,8 @@ export default function FeedbackDetails({suggestion}: {suggestion: any}) {
           variant="link"
           color="darkGray.400"
           onClick={() => router.push('/')}
+          props={{w: 'auto'}}
+          iconProps={{mr: '15px'}}
         >
           Go Back
         </Btn>
@@ -42,6 +45,8 @@ export default function FeedbackDetails({suggestion}: {suggestion: any}) {
       <SuggestionCard suggestion={suggestion} isViewOnly />
 
       {suggestion.comments && <Comments comments={suggestion.comments} />}
+
+      <AddComment />
     </Flex>
   )
 }

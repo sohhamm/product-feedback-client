@@ -4,7 +4,6 @@ import CommentIcon from '../../../public/assets/shared/icon-comments.svg'
 import {MouseEvent, useState} from 'react'
 import {useRouter} from 'next/router'
 import {Flex, Heading, Image, Text} from '@chakra-ui/react'
-import {useUIStore} from '../../store/ui'
 
 export default function SuggestionCard({
   suggestion,

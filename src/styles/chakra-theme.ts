@@ -1,6 +1,12 @@
-import {extendTheme} from '@chakra-ui/react'
+import {extendTheme, withDefaultProps} from '@chakra-ui/react'
 
-export const theme = extendTheme({
+const Heading = {
+  baseStyles: {
+    color: 'navyBlue2.400',
+  },
+}
+
+const customTheme = {
   colors: {
     purple: {
       100: '#AD1FEA',
@@ -106,4 +112,5 @@ export const theme = extendTheme({
     body: 'Jost',
     heading: 'Jost',
   },
-})
+}
+export const theme = extendTheme(customTheme)

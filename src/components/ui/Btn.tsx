@@ -10,6 +10,7 @@ interface BtnProps {
   variant?: string
   color?: string
   props?: StyleProps
+  iconProps?: StyleProps
 }
 
 export default function Btn({
@@ -22,6 +23,7 @@ export default function Btn({
   onClick,
   variant = 'solid',
   props,
+  iconProps,
 }: BtnProps) {
   return (
     <Button
@@ -42,7 +44,13 @@ export default function Btn({
       color={color ?? 'white'}
     >
       {src && (
-        <Image src={src} alt="icon" mr="5px" display={'inline'} mt="2px" />
+        <Image
+          src={src}
+          alt="icon"
+          mr={iconProps?.mr ?? '5px'}
+          display={'inline'}
+          mt="2px"
+        />
       )}
       {children}
     </Button>
