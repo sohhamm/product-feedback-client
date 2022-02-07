@@ -4,10 +4,11 @@ import {Flex, Textarea} from '@chakra-ui/react'
 
 interface ReplyCommentProps {
   commentID: number
+  isReply?: boolean
 }
 const MAX_CHARS = 250
 
-export default function ReplyComment({commentID}: ReplyCommentProps) {
+export default function ReplyComment({commentID, isReply}: ReplyCommentProps) {
   const [comment, setComment] = React.useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

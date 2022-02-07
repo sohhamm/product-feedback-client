@@ -54,11 +54,7 @@ export default function Suggestions({suggestions}: SuggestionsProps) {
           </Text>
           <SortMenu />
         </Flex>
-        <Btn
-          src={PlusIcon.src}
-          hoverColor="#C75AF6"
-          onClick={() => router.push('/feedback-new')}
-        >
+        <Btn src={PlusIcon.src} onClick={() => router.push('/feedback-new')}>
           Add Feedback
         </Btn>
       </Flex>

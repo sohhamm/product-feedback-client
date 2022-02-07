@@ -34,6 +34,7 @@ export default function Btn({
       pt="13px"
       pb="11px"
       mb={mb ?? ''}
+      mr={props?.mr ?? ''}
       fontWeight={props?.fontWeight ?? 700}
       _hover={{
         bg: hoverColor,

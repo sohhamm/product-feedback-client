@@ -28,13 +28,13 @@ export default function AddComment() {
         onChange={handleChange}
         bg="#F7F8FD"
         borderRadius="5px"
+        placeholder="Type your comment here..."
+        focusBorderColor="darkBlue.400"
         mt={['24px']}
         _placeholder={{
           color: '#8C92B3',
           padding: '5px 8px',
         }}
-        placeholder="Type your comment here..."
-        focusBorderColor="darkBlue.400"
       />
       <Flex justify={'space-between'} align={'center'} mt="16px">
         <Text color="#647196" fontSize={['15px']}>
