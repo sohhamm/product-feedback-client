@@ -7,3 +7,10 @@ export const tagsObj = [
   {value: 'BUG', display: 'Bug'},
   {value: 'FEATURE', display: 'Feature'},
 ]
+
+export const statusObj = [
+  {value: 'SUGGESTION', display: 'Suggestion'},
+  {value: 'PLANNED', display: 'Planned'},
+  {value: 'IN_PROGRESS', display: 'In-Progress'},
+  {value: 'LIVE', display: 'Live'},
+]

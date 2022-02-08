@@ -1,7 +1,8 @@
 export interface Feedback {
   title: string
   category: string
-  description: string
+  desc: string
+  status?: string
 }
 
 export type HandleFeedbackChange = (
