@@ -51,6 +51,7 @@ export default function Btn({
           mr={iconProps?.mr ?? '5px'}
           display={'inline'}
           mt="2px"
+          color={iconProps?.color ?? ''}
         />
       )}
       {children}

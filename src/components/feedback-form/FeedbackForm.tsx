@@ -28,13 +28,16 @@ export default function FeedbackForm({
   handleDeleteFeedback,
 }: FeedbackFormProps) {
   const router = useRouter()
+  const {id} = router.query
   return (
     <Box maxW="540px" mx="auto">
       <Btn
         src={LeftIcon.src}
         variant="link"
         color="darkGray.400"
-        onClick={() => router.push('/')}
+        onClick={() =>
+          isEdit ? router.push(`/feedback-details/${id}`) : router.push('/')
+        }
         props={{w: 'auto'}}
         iconProps={{mr: '15px'}}
         mb="40px"
