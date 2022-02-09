@@ -6,6 +6,7 @@ import Status from './Status'
 import Tag from './Tag'
 import Upvotes from './Upvotes'
 import CommentsUI from './CommentsUI'
+import Link from 'next/link'
 
 interface RoadmapCardProps {
   status: TStatus
@@ -29,9 +30,17 @@ export default function RoadmapCard({status, request}: RoadmapCardProps) {
       bg="white"
     >
       <Status color={color} text={status} />
-      <Heading as="h4" fontSize={['18px']} color="navyBlue2.400" mt="8px">
-        {request.title}
-      </Heading>
+      <Link href={`/feedback-details/${request.id}`} passHref>
+        <Heading
+          as="h4"
+          fontSize={['18px']}
+          color="navyBlue2.400"
+          mt="8px"
+          _hover={{color: 'darkBlue.400', cursor: 'pointer'}}
+        >
+          {request.title}
+        </Heading>
+      </Link>
       <Text as="h4" fontSize={['16px']} color="darkGray.400" mt="4px" mb="16px">
         {request.description}
       </Text>

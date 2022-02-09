@@ -28,7 +28,7 @@ export default function FeedbackDetails({suggestion}: {suggestion: any}) {
           src={LeftIcon.src}
           variant="link"
           color="darkGray.400"
-          onClick={() => router.push('/')}
+          onClick={() => router.back()}
           props={{w: 'auto'}}
           iconProps={{mr: '15px'}}
         >

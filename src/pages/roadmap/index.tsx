@@ -73,12 +73,49 @@ export default function Roadmap({planned, inProgress, live}: RoadmapProps) {
           <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
             Planned ({planned.length})
           </Heading>
-          <Text fontSize={['16px']} mb="32px">
+          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
             Ideas prioritized for research
           </Text>
 
           <Flex direction={'column'} rowGap="24px">
             {planned.map((request: any) => (
+              <RoadmapCard
+                status={request.status}
+                key={request.id}
+                request={request}
+              />
+            ))}
+          </Flex>
+        </Box>
+        <Box>
+          <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
+            In-progress ({inProgress.length})
+          </Heading>
+          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
+            Currently being developed
+          </Text>
+
+          <Flex direction={'column'} rowGap="24px">
+            {inProgress.map((request: any) => (
+              <RoadmapCard
+                status={request.status}
+                key={request.id}
+                request={request}
+              />
+            ))}
+          </Flex>
+        </Box>
+
+        <Box>
+          <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
+            Live ({live.length})
+          </Heading>
+          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
+            Released Features
+          </Text>
+
+          <Flex direction={'column'} rowGap="24px">
+            {live.map((request: any) => (
               <RoadmapCard
                 status={request.status}
                 key={request.id}

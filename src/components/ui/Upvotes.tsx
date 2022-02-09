@@ -25,7 +25,7 @@ export default function Upvotes({
       justify={'center'}
       align={'center'}
       w={isRow ? '69px' : '40px'}
-      pt={isRow ? '4px' : '14px'}
+      pt={isRow ? '2px' : '14px'}
       pb="8px"
       borderRadius={'10px'}
       bg={'lightGray.400'}
