@@ -1,4 +1,4 @@
-import {Box, Grid, Text} from '@chakra-ui/react'
+import {Box, Flex, Grid, Text, useMediaQuery} from '@chakra-ui/react'
 import type {GetServerSideProps, NextPage} from 'next'
 import Head from 'next/head'
 import Sidebar from '../components/Sidebar'
@@ -15,8 +15,23 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
   console.log(data)
+
+  const [isTablet] = useMediaQuery('(min-width: 481px) and (max-width:769px)')
+
+  if (isTablet)
+    return (
+      <Flex direction={'column'}>
+        <Box as="aside" w="100%" h="100%" mb="40px">
+          <Sidebar />
+        </Box>
+
+        <Box as="main" w="100%" h="80vh" position={'relative'}>
+          <Suggestions suggestions={suggestions} />
+        </Box>
+      </Flex>
+    )
   return (
-    <Grid templateColumns="1fr 3.24fr" gap="30px" mx="auto">
+    <Grid templateColumns={['1fr', '1fr 3.24fr']} gap="30px" mx="auto">
       <Box as="aside" w="100%" h="100%">
         <Sidebar />
       </Box>

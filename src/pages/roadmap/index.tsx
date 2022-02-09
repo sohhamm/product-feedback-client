@@ -58,7 +58,11 @@ export default function Roadmap({planned, inProgress, live}: RoadmapProps) {
           </Heading>
         </Box>
 
-        <Btn src={PlusIcon.src} onClick={() => router.push('/feedback-new')}>
+        <Btn
+          src={PlusIcon.src}
+          onClick={() => router.push('/feedback-new')}
+          hoverColor="#C75AF6"
+        >
           Add Feedback
         </Btn>
       </Flex>

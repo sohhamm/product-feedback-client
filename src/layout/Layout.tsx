@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export default function Layout({children}: LayoutProps) {
   return (
-    <Box w="100%" minH="100vh" maxW="1110px" mx="auto" py="94px">
+    <Box w="100%" minH="100vh" maxW="1110px" mx="auto" py="94px" px="39px">
       {children}
     </Box>
   )

@@ -7,11 +7,11 @@ import Status from './ui/Status'
 
 export default function Sidebar() {
   return (
-    <Flex flexDir="column" rowGap={'24px'}>
+    <Flex flexDir={['row', 'row', 'column']} rowGap={'24px'} columnGap="10px">
       <Flex
         flexDir="column"
         w="255px"
-        h="137px"
+        h={['100%', '195px', '137px']}
         borderRadius="10px"
         background={bgGradient}
         p="24px"
