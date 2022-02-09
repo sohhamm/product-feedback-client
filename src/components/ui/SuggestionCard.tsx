@@ -1,7 +1,7 @@
-import Upvotes from './Upvotes'
-import Tag from './Tag'
-import CommentIcon from '../../../public/assets/shared/icon-comments.svg'
-import {MouseEvent, useState} from 'react'
+import * as React from 'react'
+import Upvotes from '@/components/ui/Upvotes'
+import Tag from '@/components/ui/Tag'
+import CommentsUI from '@/components/ui/CommentsUI'
 import {useRouter} from 'next/router'
 import {Flex, Heading, Image, Text} from '@chakra-ui/react'
 
@@ -12,14 +12,14 @@ export default function SuggestionCard({
   suggestion: any
   isViewOnly?: boolean
 }) {
-  const [headingColor, setHeadingColor] = useState('navyBlue2.400')
+  const [headingColor, setHeadingColor] = React.useState('navyBlue2.400')
   const router = useRouter()
 
   const handleGoToDetails = () => {
     router.push(`/feedback-details/${suggestion.id}`)
   }
 
-  const handleUpvoteFeedback = (e: MouseEvent) => {
+  const handleUpvoteFeedback = (e: React.MouseEvent) => {
     e.stopPropagation()
     //todo upvote feature
   }
@@ -63,18 +63,7 @@ export default function SuggestionCard({
         </Flex>
       </Flex>
 
-      <Flex align={'center'}>
-        <Image
-          src={CommentIcon.src}
-          alt="comments"
-          w="18px"
-          h="16px"
-          mr="8px"
-        />
-        <Text fontSize={'16px'} fontWeight={'bold'}>
-          {suggestion.comments?.length ?? 0}
-        </Text>
-      </Flex>
+      <CommentsUI noOfComments={suggestion.comments?.length ?? 0} />
     </Flex>
   )
 }

@@ -7,6 +7,8 @@ interface UpvotesProps {
   onClick?: MouseEventHandler<HTMLDivElement>
   onMouseEnter?: MouseEventHandler<HTMLDivElement>
   onMouseLeave?: MouseEventHandler<HTMLDivElement>
+  isRow?: boolean
+  iconProps?: any
 }
 
 export default function Upvotes({
@@ -14,15 +16,16 @@ export default function Upvotes({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  isRow,
+  iconProps,
 }: UpvotesProps) {
   return (
     <Flex
-      direction={'column'}
+      direction={isRow ? 'row' : 'column'}
       justify={'center'}
       align={'center'}
-      w="40px"
-      h="53px"
-      pt="14px"
+      w={isRow ? '69px' : '40px'}
+      pt={isRow ? '4px' : '14px'}
       pb="8px"
       borderRadius={'10px'}
       bg={'lightGray.400'}
@@ -35,7 +38,12 @@ export default function Upvotes({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Image src={UpIcon.src} alt="arrow-up" />
+      <Image
+        src={UpIcon.src}
+        alt="arrow-up"
+        mt={iconProps?.mt ?? ''}
+        mr={iconProps?.mr ?? ''}
+      />
       <Text
         fontSize={'13px'}
         fontWeight={'bold'}

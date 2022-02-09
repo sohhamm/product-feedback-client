@@ -11,3 +11,5 @@ export type HandleFeedbackChange = (
   >,
   key: string,
 ) => void
+
+export type TStatus = 'in-progress' | 'live' | 'planned'

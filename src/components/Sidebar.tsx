@@ -3,6 +3,7 @@ import {Box, chakra, Flex, Heading, Text} from '@chakra-ui/react'
 import {allTags} from '../constants/constants'
 import Tag from './ui/Tag'
 import Link from 'next/link'
+import Status from './ui/Status'
 
 export default function Sidebar() {
   return (
@@ -54,51 +55,21 @@ export default function Sidebar() {
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Flex align={'center'}>
-            <Box
-              as="span"
-              borderRadius={'60%'}
-              w="8px"
-              h="8px"
-              bg="#F49F85"
-              mr="16px"
-            />
-            <Text color="darkGray.400">Planned</Text>
-          </Flex>
+          <Status color="#F49F85" text="Planned" />
           <Text color="darkGray.400" fontWeight={'bold'}>
             2
           </Text>
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Flex align={'center'}>
-            <Box
-              as="span"
-              borderRadius={'60%'}
-              w="8px"
-              h="8px"
-              bg="#AD1FEA"
-              mr="16px"
-            />
-            <Text color="darkGray.400">In-progress</Text>
-          </Flex>
+          <Status color="#AD1FEA" text="In-progress" />
           <Text color="darkGray.400" fontWeight={'bold'}>
             3
           </Text>
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Flex align={'center'}>
-            <Box
-              as="span"
-              borderRadius={'60%'}
-              w="8px"
-              h="8px"
-              bg="#62BCFA"
-              mr="16px"
-            />
-            <Text color="darkGray.400">Live</Text>
-          </Flex>
+          <Status color="#62BCFA" text="Live" />
           <Text color="darkGray.400" fontWeight={'bold'}>
             1
           </Text>

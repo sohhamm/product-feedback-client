@@ -1,4 +1,4 @@
-import {Feedback} from '@/types/types'
+import {Feedback, TStatus} from '@/types/types'
 
 export const sorter = (a: any, b: any, activeSort: string) => {
   switch (activeSort) {
@@ -42,3 +42,14 @@ export const feedbackReducer = (
 }
 
 export const handleAddFeedback = (type: string) => {}
+
+export const getColor = (status: TStatus) => {
+  switch (status) {
+    case 'planned':
+      return 'orange.400'
+    case 'in-progress':
+      return 'purple.400'
+    case 'live':
+      return 'lightBlue.400'
+  }
+}
