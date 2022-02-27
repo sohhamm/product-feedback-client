@@ -32,7 +32,7 @@ export default function MobileHeader() {
       top={0}
       p="16px 24px"
       mt="-94px"
-      mx="-39px"
+      mx="-24px"
       justify={'space-between'}
       align="center"
       zIndex={1}

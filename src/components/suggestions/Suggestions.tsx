@@ -41,7 +41,7 @@ export default function Suggestions({suggestions, isMobile}: SuggestionsProps) {
           bg="navyBlue1.400"
           py="14px"
           px="16px"
-          mx="-39px"
+          mx="-24px"
         >
           <Flex columnGap={'16px'} alignItems={'center'}>
             <SortMenu />

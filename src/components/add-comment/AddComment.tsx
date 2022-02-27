@@ -4,7 +4,7 @@ import Btn from '../ui/Btn'
 
 const MAX_CHARS = 250
 
-export default function AddComment() {
+export default function AddComment({isMobile}: {isMobile?: boolean}) {
   const [comment, setComment] = React.useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -18,7 +18,13 @@ export default function AddComment() {
   const handlePostComment = () => {}
 
   return (
-    <Box bg="white" borderRadius={'10px'} px="32px" pt="24px" pb="48px">
+    <Box
+      bg="white"
+      borderRadius={'10px'}
+      px={['24px', '32px']}
+      pt="24px"
+      pb="48px"
+    >
       <Heading fontSize={['18px']} color="navyBlue2.400">
         Add Comment
       </Heading>
@@ -35,12 +41,17 @@ export default function AddComment() {
           color: '#8C92B3',
           padding: '5px 8px',
         }}
+        fontSize={['13px', '15px']}
       />
       <Flex justify={'space-between'} align={'center'} mt="16px">
-        <Text color="#647196" fontSize={['15px']}>
+        <Text color="#647196" fontSize={['13px', '15px']}>
           {MAX_CHARS - comment.length} characters left
         </Text>
-        <Btn onClick={handlePostComment} hoverColor="#C75AF6">
+        <Btn
+          onClick={handlePostComment}
+          hoverColor="#C75AF6"
+          isMobile={isMobile}
+        >
           Post Comment
         </Btn>
       </Flex>

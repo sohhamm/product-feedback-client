@@ -16,8 +16,9 @@ export default function Layout({children}: LayoutProps) {
         minH="100vh"
         maxW="1110px"
         mx="auto"
-        py="94px"
-        px={['39px', '39px', 'auto']}
+        pt={['94px', '94px', '94px']}
+        pb={['164px', '94px', '94px']}
+        px={['24px', '39px', 'auto']}
       >
         {children}
       </Box>
