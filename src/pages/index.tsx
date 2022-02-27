@@ -2,7 +2,7 @@ import Sidebar from '@/components/Sidebar'
 import MobileHeader from '@/components/mobile/MobileHeader'
 import Suggestions from '@/components/suggestions/Suggestions'
 import type {GetServerSideProps} from 'next'
-import {Box, Flex, Grid} from '@chakra-ui/react'
+import {Box, Flex, Grid, Spinner} from '@chakra-ui/react'
 import {useMediaQuerySSR} from '@/hooks/media-query-ssr'
 import {getFeedbacks} from '@/service/feedback'
 
@@ -16,7 +16,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const Home = ({suggestions}: {suggestions: any; data: any}) => {
   const isMobile = useMediaQuerySSR(480)
-  const isTablet = useMediaQuerySSR(770)
+  const isTablet = useMediaQuerySSR(767)
+  const isDesktop = useMediaQuerySSR(1650)
+
+  const didMediaQueryResolve = isMobile || isTablet || isDesktop
+
+  if (!didMediaQueryResolve)
+    return (
+      <Flex h="70vh" justify={'center'} align="center">
+        <Spinner color="pink" size="xl" thickness="4px" />
+      </Flex>
+    )
 
   if (isMobile)
     return (
