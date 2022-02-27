@@ -96,7 +96,11 @@ export default function Suggestions({suggestions, isMobile}: SuggestionsProps) {
           {filteredSuggestions
             .sort((el1: any, el2: any) => sorter(el1, el2, activeSort))
             .map((suggestion: any) => (
-              <SuggestionCard suggestion={suggestion} key={suggestion.id} />
+              <SuggestionCard
+                suggestion={suggestion}
+                key={suggestion.id}
+                isMobile={isMobile}
+              />
             ))}
         </Flex>
       )}
