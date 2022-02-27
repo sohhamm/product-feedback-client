@@ -1,3 +1,4 @@
+import MobileHeader from '@/components/mobile/MobileHeader'
 import {Box, Flex, Grid, Text, useMediaQuery} from '@chakra-ui/react'
 import type {GetServerSideProps, NextPage} from 'next'
 import Head from 'next/head'
@@ -14,7 +15,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
-  const [isTablet] = useMediaQuery('(min-width: 481px) and (max-width:769px)')
+  const [isMobile, isTablet] = useMediaQuery([
+    '(max-width: 480px)',
+    '(min-width: 481px) and (max-width:769px)',
+  ])
+
+  console.log(isMobile, isTablet)
+
+  if (isMobile)
+    return (
+      <Flex direction={'column'}>
+        <MobileHeader />
+        <Box as="main">
+          <Suggestions suggestions={suggestions} isMobile />
+        </Box>
+      </Flex>
+    )
 
   if (isTablet)
     return (
