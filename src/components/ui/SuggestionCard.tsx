@@ -8,9 +8,11 @@ import {Flex, Heading, Image, Text} from '@chakra-ui/react'
 export default function SuggestionCard({
   suggestion,
   isViewOnly,
+  isMobile,
 }: {
   suggestion: any
   isViewOnly?: boolean
+  isMobile?: boolean
 }) {
   const [headingColor, setHeadingColor] = React.useState('navyBlue2.400')
   const router = useRouter()
@@ -23,6 +25,54 @@ export default function SuggestionCard({
     e.stopPropagation()
     //todo upvote feature
   }
+
+  if (isMobile)
+    return (
+      <Flex
+        bg="white"
+        w="100%"
+        flexDir={'column'}
+        p="25px"
+        borderRadius={'10px'}
+        onClick={isViewOnly ? () => {} : handleGoToDetails}
+        _hover={{
+          cursor: isViewOnly ? '' : 'pointer',
+        }}
+        onMouseEnter={() => setHeadingColor('darkBlue.400')}
+        onMouseLeave={() => setHeadingColor('navyBlue2.400')}
+      >
+        <Flex direction={'column'} color="navyBlue2.400">
+          <Heading
+            as="h2"
+            fontSize={'13px'}
+            mb="4px"
+            color={isViewOnly ? 'navyBlue2.400' : headingColor}
+          >
+            {suggestion.title}
+          </Heading>
+          <Text mb="8px" fontSize={'13px'} color="#647196">
+            {suggestion.description}
+          </Text>
+          <Tag isViewOnly>{suggestion.category}</Tag>
+        </Flex>
+
+        <Flex justify={'space-between'} mt="16px">
+          <Upvotes
+            upvotes={suggestion.upvotes}
+            onClick={handleUpvoteFeedback}
+            onMouseEnter={() => setHeadingColor('navyBlue2.400')}
+            onMouseLeave={() => setHeadingColor('darkBlue.400')}
+            isRow
+            iconProps={{
+              mt: '6px',
+              mr: '10px',
+            }}
+          />
+
+          <CommentsUI noOfComments={suggestion.comments?.length ?? 0} />
+        </Flex>
+      </Flex>
+    )
 
   return (
     <Flex
