@@ -5,7 +5,7 @@ interface BtnProps {
   colorScheme?: string
   src?: string
   hoverColor?: string
-  mb?: string
+  mb?: string | string[]
   onClick?: () => void
   variant?: string
   color?: string
@@ -29,7 +29,6 @@ export default function Btn({
   isMobile,
   order,
 }: BtnProps) {
-  console.log(order)
   return (
     <Button
       fontSize={isMobile ? '13px' : '14px'}

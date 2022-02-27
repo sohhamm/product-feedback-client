@@ -11,9 +11,9 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/react'
-import DownIcon from '../../../public/assets/shared/icon-arrow-down.svg'
-import UpIcon from '../../../public/assets/shared/icon-arrow-up.svg'
-import CheckIcon from '../../../public/assets/shared/icon-check.svg'
+import DownIcon from '/public/assets/shared/icon-arrow-down.svg'
+import UpIcon from '/public/assets/shared/icon-arrow-up.svg'
+import CheckIcon from '/public/assets/shared/icon-check.svg'
 
 export default function SortMenu() {
   const activeSort = useUIStore(state => state.activeSort)

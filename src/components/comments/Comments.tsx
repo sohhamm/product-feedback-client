@@ -19,7 +19,6 @@ export default function Comments({
       comments.length +
       comments.reduce((acc: number, comment: any) => {
         const replies = comment.replies?.length ?? 0
-        console.log(replies)
         return (acc += replies)
       }, 0)
     )
