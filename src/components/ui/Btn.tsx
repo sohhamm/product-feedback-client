@@ -11,6 +11,7 @@ interface BtnProps {
   color?: string
   props?: StyleProps
   iconProps?: StyleProps
+  isMobile?: boolean
 }
 
 export default function Btn({
@@ -24,10 +25,11 @@ export default function Btn({
   variant = 'solid',
   props,
   iconProps,
+  isMobile,
 }: BtnProps) {
   return (
     <Button
-      fontSize={props?.fontSize ?? '14px'}
+      fontSize={isMobile ? '13px' : '14px'}
       colorScheme={colorScheme}
       borderRadius={'10px'}
       w={props?.w ?? '158px'}

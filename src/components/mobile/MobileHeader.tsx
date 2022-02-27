@@ -61,8 +61,8 @@ export default function MobileHeader() {
         finalFocusRef={btnRef}
         size="xs"
       >
-        <DrawerOverlay h="91.5vh" mt="72px" />
-        <DrawerContent h="91.5vh" mt="auto" bg="#F7F8FD">
+        <DrawerOverlay mt="72px" />
+        <DrawerContent mt="71.5px" bg="#F7F8FD">
           <DrawerBody
             display={'flex'}
             flexDir="column"

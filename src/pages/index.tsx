@@ -1,4 +1,4 @@
-import Sidebar from '@/components/Sidebar'
+import Sidebar from '@/components/sidebar/Sidebar'
 import MobileHeader from '@/components/mobile/MobileHeader'
 import Suggestions from '@/components/suggestions/Suggestions'
 import type {GetServerSideProps} from 'next'
@@ -17,9 +17,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const Home = ({suggestions}: {suggestions: any; data: any}) => {
   const isMobile = useMediaQuerySSR(480)
   const isTablet = useMediaQuerySSR(767)
-  const isDesktop = useMediaQuerySSR(1650)
+  const isMax = useMediaQuerySSR(4000)
 
-  const didMediaQueryResolve = isMobile || isTablet || isDesktop
+  const didMediaQueryResolve = isMobile || isTablet || isMax
 
   if (!didMediaQueryResolve)
     return (
@@ -44,7 +44,6 @@ const Home = ({suggestions}: {suggestions: any; data: any}) => {
         <Box as="aside" w="100%" h="100%" mb="40px">
           <Sidebar />
         </Box>
-
         <Box as="main" w="100%" h="80vh" position={'relative'}>
           <Suggestions suggestions={suggestions} />
         </Box>

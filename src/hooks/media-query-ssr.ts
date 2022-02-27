@@ -21,6 +21,7 @@ export const useMediaQuerySSR = (width: string | number) => {
     }
 
     return () => media.removeEventListener('change', e => updateTarget(e))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return targetReached

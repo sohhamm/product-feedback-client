@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Link from 'next/link'
-import Tag from './ui/Tag'
-import Status from './ui/Status'
-import {allTags} from '../constants/constants'
+import Tag from '@/components/ui/Tag'
+import Status from '@/components/ui/Status'
+import {allTags} from '@/constants/constants'
 import {Box, Flex, Heading, Text} from '@chakra-ui/react'
 
 export default function Sidebar() {

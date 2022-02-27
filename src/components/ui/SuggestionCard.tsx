@@ -44,7 +44,7 @@ export default function SuggestionCard({
         <Flex direction={'column'} color="navyBlue2.400">
           <Heading
             as="h2"
-            fontSize={'13px'}
+            fontSize={'14px'}
             mb="4px"
             color={isViewOnly ? 'navyBlue2.400' : headingColor}
           >
@@ -63,8 +63,9 @@ export default function SuggestionCard({
             onMouseEnter={() => setHeadingColor('navyBlue2.400')}
             onMouseLeave={() => setHeadingColor('darkBlue.400')}
             isRow
+            isMobile
             iconProps={{
-              mt: '6px',
+              mt: '2px',
               mr: '10px',
             }}
           />
