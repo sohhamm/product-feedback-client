@@ -147,7 +147,7 @@ export default function FeedbackForm({
               />
             </Box>
 
-            <Flex justify={'space-between'} mt="8px">
+            <Flex justify={isEdit ? 'space-between' : 'flex-end'} mt="8px">
               {isEdit && (
                 <Btn
                   colorScheme="red"

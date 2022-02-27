@@ -15,7 +15,6 @@ export default function FeedbackNew() {
 
   const handleAddFeedback = (type: string) => {}
 
-  // console.log(feedback)
   return (
     <FeedbackForm
       feedback={feedback}

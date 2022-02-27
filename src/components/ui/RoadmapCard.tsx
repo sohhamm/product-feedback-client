@@ -16,8 +16,6 @@ interface RoadmapCardProps {
 export default function RoadmapCard({status, request}: RoadmapCardProps) {
   const color = React.useMemo(() => getColor(status), [status])
 
-  console.log(request)
-
   const handleUpvoteRequest = () => {}
 
   return (
@@ -25,7 +23,7 @@ export default function RoadmapCard({status, request}: RoadmapCardProps) {
       borderRadius="5px"
       borderTop={`6px solid`}
       borderTopColor={color}
-      p="32px"
+      p={['20px', '20px', '32px']}
       pt="25px"
       bg="white"
     >
@@ -33,7 +31,7 @@ export default function RoadmapCard({status, request}: RoadmapCardProps) {
       <Link href={`/feedback-details/${request.id}`} passHref>
         <Heading
           as="h4"
-          fontSize={['18px']}
+          fontSize={['12px', '13px', '18px']}
           color="navyBlue2.400"
           mt="8px"
           _hover={{color: 'darkBlue.400', cursor: 'pointer'}}
@@ -41,7 +39,13 @@ export default function RoadmapCard({status, request}: RoadmapCardProps) {
           {request.title}
         </Heading>
       </Link>
-      <Text as="h4" fontSize={['16px']} color="darkGray.400" mt="4px" mb="16px">
+      <Text
+        as="h4"
+        fontSize={['12px', '13px', '16px']}
+        color="darkGray.400"
+        mt="4px"
+        mb="16px"
+      >
         {request.description}
       </Text>
       <Tag isViewOnly>{request.category}</Tag>

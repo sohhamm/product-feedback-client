@@ -70,14 +70,23 @@ export default function Roadmap({planned, inProgress, live}: RoadmapProps) {
       <SimpleGrid
         as="main"
         templateColumns={'repeat(3,1fr)'}
-        gap="30px"
-        mt="48px"
+        gap={['10px', '10px', '30px']}
+        mt={['32px', '32px', '48px']}
       >
         <Box>
-          <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
+          <Heading
+            as="h3"
+            color="navyBlue2.400"
+            fontSize={['14px', '14px', '18px']}
+            mb="4px"
+          >
             Planned ({planned.length})
           </Heading>
-          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
+          <Text
+            fontSize={['14px', '14px', '16px']}
+            mb={['24px', '24px', '32px']}
+            color="darkGray.400"
+          >
             Ideas prioritized for research
           </Text>
 
@@ -92,10 +101,19 @@ export default function Roadmap({planned, inProgress, live}: RoadmapProps) {
           </Flex>
         </Box>
         <Box>
-          <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
+          <Heading
+            as="h3"
+            color="navyBlue2.400"
+            fontSize={['14px', '14px', '18px']}
+            mb="4px"
+          >
             In-progress ({inProgress.length})
           </Heading>
-          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
+          <Text
+            fontSize={['14px', '14px', '16px']}
+            mb={['24px', '24px', '32px']}
+            color="darkGray.400"
+          >
             Currently being developed
           </Text>
 
@@ -111,14 +129,23 @@ export default function Roadmap({planned, inProgress, live}: RoadmapProps) {
         </Box>
 
         <Box>
-          <Heading as="h3" color="navyBlue2.400" fontSize={['18px']} mb="4px">
+          <Heading
+            as="h3"
+            color="navyBlue2.400"
+            fontSize={['14px', '14px', '18px']}
+            mb="4px"
+          >
             Live ({live.length})
           </Heading>
-          <Text fontSize={['16px']} mb="32px" color="darkGray.400">
+          <Text
+            fontSize={['14px', '14px', '16px']}
+            mb={['24px', '24px', '32px']}
+            color="darkGray.400"
+          >
             Released Features
           </Text>
 
-          <Flex direction={'column'} rowGap="24px">
+          <Flex direction={'column'} rowGap={['16px', '16px', '24px']}>
             {live.map((request: any) => (
               <RoadmapCard
                 status={request.status}

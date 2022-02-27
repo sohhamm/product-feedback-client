@@ -30,7 +30,6 @@ export default function FeedbackEdit({suggestion}: {suggestion: any}) {
 
   const handleDeleteFeedback = () => {}
 
-  // console.log(feedback)
   return (
     <FeedbackForm
       feedback={feedback}

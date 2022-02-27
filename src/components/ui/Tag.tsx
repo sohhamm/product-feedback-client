@@ -33,7 +33,7 @@ export default function Tag({
           : 'lightGray.400'
       }
       fontWeight={'semibold'}
-      fontSize={'13px'}
+      fontSize={['12px', '13px']}
       borderRadius={'12px'}
       _hover={
         isViewOnly

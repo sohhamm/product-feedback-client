@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {Box, chakra, Flex, Heading, Text} from '@chakra-ui/react'
-import {allTags} from '../constants/constants'
-import Tag from './ui/Tag'
 import Link from 'next/link'
+import Tag from './ui/Tag'
 import Status from './ui/Status'
+import {allTags} from '../constants/constants'
+import {Box, Flex, Heading, Text} from '@chakra-ui/react'
 
 export default function Sidebar() {
   return (
@@ -28,6 +28,7 @@ export default function Sidebar() {
         alignItems={'center'}
         flexWrap={'wrap'}
         gap="14px"
+        columnGap={['8px', '8px', '14px']}
         w="255px"
         borderRadius="10px"
         p="24px"
@@ -39,7 +40,11 @@ export default function Sidebar() {
       </Flex>
       <Box w="255px" borderRadius="10px" p={['24px']} bg="white">
         <Flex justify="space-between" mb="24px">
-          <Heading fontSize={['20px']} color="navyBlue2" fontWeight={'bold'}>
+          <Heading
+            fontSize={['18px', '18px', '20px']}
+            color="navyBlue2"
+            fontWeight={'bold'}
+          >
             Roadmap
           </Heading>
           <Link href="/roadmap" passHref>
@@ -55,21 +60,21 @@ export default function Sidebar() {
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Status color="#F49F85" text="Planned" />
+          <Status color="#F49F85" text="Planned" isHomePage />
           <Text color="darkGray.400" fontWeight={'bold'}>
             2
           </Text>
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Status color="#AD1FEA" text="In-progress" />
+          <Status color="#AD1FEA" text="In-progress" isHomePage />
           <Text color="darkGray.400" fontWeight={'bold'}>
             3
           </Text>
         </Flex>
 
         <Flex justify="space-between" mb="8px" fontSize={['16px']}>
-          <Status color="#62BCFA" text="Live" />
+          <Status color="#62BCFA" text="Live" isHomePage />
           <Text color="darkGray.400" fontWeight={'bold'}>
             1
           </Text>

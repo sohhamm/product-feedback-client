@@ -1,14 +1,23 @@
-import {Box, Flex, Heading, Text} from '@chakra-ui/react'
-import Image from 'next/image'
 import * as React from 'react'
+import Image from 'next/image'
 import ReplyComment from '../reply-comment/ReplyComment'
-import Btn from '../ui/Btn'
+import Btn from '@/components/ui/Btn'
 import styles from './comments.module.css'
+import {Box, Flex, Heading, Text} from '@chakra-ui/react'
 
 export default function Comments({comments}: {comments: any}) {
   const [replyIDs, setReplyIDs] = React.useState<number[]>([])
 
-  console.log(comments)
+  const totalComments = React.useMemo(() => {
+    return (
+      comments.length +
+      comments.reduce((acc: number, comment: any) => {
+        const replies = comment.replies?.length ?? 0
+        console.log(replies)
+        return (acc += replies)
+      }, 0)
+    )
+  }, [comments])
 
   const handleReply = (id: number) => {
     setReplyIDs(oldState => {
@@ -18,13 +27,10 @@ export default function Comments({comments}: {comments: any}) {
     })
   }
 
-  console.log(replyIDs)
-
-  console.log(replyIDs.includes(3))
   return (
     <Box bg="white" borderRadius={'10px'} px="32px" pt="24px" pb="48px">
       <Heading as="h2" fontSize={['18px']} color="navyBlue2.400" mb={'28px'}>
-        {comments.length} Comments
+        {totalComments} Comments
       </Heading>
 
       {comments.map((comment: any, idx: number) => (
@@ -100,6 +106,7 @@ export default function Comments({comments}: {comments: any}) {
                     variant="link"
                     color="darkBlue.400"
                     props={{fontSize: '13px', fontWeight: 600, w: '60px'}}
+                    onClick={() => handleReply(comment.id)}
                   >
                     Reply
                   </Btn>

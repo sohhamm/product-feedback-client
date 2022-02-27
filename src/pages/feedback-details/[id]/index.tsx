@@ -1,12 +1,12 @@
-import SuggestionCard from '../../../components/ui/SuggestionCard'
-import Comments from '../../../components/comments/Comments'
-import Btn from '../../../components/ui/Btn'
-import LeftIcon from '../../../../public/assets/shared/icon-arrow-left.svg'
+import SuggestionCard from '@/components/ui/SuggestionCard'
+import AddComment from '@/components/add-comment/AddComment'
+import Comments from '@/components/comments/Comments'
+import Btn from '@/components/ui/Btn'
+import LeftIcon from '/public/assets/shared/icon-arrow-left.svg'
 import {Flex} from '@chakra-ui/react'
 import {useRouter} from 'next/router'
 import {GetServerSideProps} from 'next/types'
-import {getFeedbacks} from '../../../service/feedback'
-import AddComment from '../../../components/add-comment/AddComment'
+import {getFeedbacks} from '@/service/feedback'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   const _res = await getFeedbacks()
@@ -28,7 +28,7 @@ export default function FeedbackDetails({suggestion}: {suggestion: any}) {
           src={LeftIcon.src}
           variant="link"
           color="darkGray.400"
-          onClick={() => router.back()}
+          onClick={() => router.push('/')}
           props={{w: 'auto'}}
           iconProps={{mr: '15px'}}
         >

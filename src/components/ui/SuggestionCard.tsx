@@ -56,7 +56,7 @@ export default function SuggestionCard({
           >
             {suggestion.title}
           </Heading>
-          <Text mb="12px" fontWeight={'16px'} color="#647196">
+          <Text mb="12px" fontSize={'16px'} color="#647196">
             {suggestion.description}
           </Text>
           <Tag isViewOnly>{suggestion.category}</Tag>

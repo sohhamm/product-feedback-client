@@ -14,8 +14,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
-  console.log(data)
-
   const [isTablet] = useMediaQuery('(min-width: 481px) and (max-width:769px)')
 
   if (isTablet)
@@ -30,6 +28,7 @@ const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
         </Box>
       </Flex>
     )
+
   return (
     <Grid templateColumns={['1fr', '1fr 3.24fr']} gap="30px" mx="auto">
       <Box as="aside" w="100%" h="100%">

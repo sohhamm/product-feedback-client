@@ -22,7 +22,7 @@ export default function ReplyComment({commentID, isReply}: ReplyCommentProps) {
   const handleReplyComment = () => {}
 
   return (
-    <Flex mt={['24px']} pl={['52px']}>
+    <Flex mt={['24px']} pl={['90px']}>
       <Textarea
         value={comment}
         onChange={handleChange}

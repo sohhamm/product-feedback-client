@@ -45,7 +45,7 @@ export default function Upvotes({
         mr={iconProps?.mr ?? ''}
       />
       <Text
-        fontSize={'13px'}
+        fontSize={['12px', '13px']}
         fontWeight={'bold'}
         mt="8px"
         color={'navyBlue2.400'}
