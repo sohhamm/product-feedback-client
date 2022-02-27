@@ -30,7 +30,7 @@ export default function FeedbackForm({
   const router = useRouter()
   const {id} = router.query
   return (
-    <Box maxW="540px" mx="auto">
+    <Box maxW="540px" mx="auto" mt={['-60px', '0px']}>
       <Btn
         src={LeftIcon.src}
         variant="link"
@@ -49,7 +49,7 @@ export default function FeedbackForm({
         bg="white"
         borderRadius={'10px'}
         position={'relative'}
-        px="42px"
+        px={['24px', '42px']}
         pb="40px"
         pt="52px"
       >
@@ -62,13 +62,18 @@ export default function FeedbackForm({
           position="absolute"
           left={10}
         />
-        <Heading mb="40px" fontSize={['24px']} color="navyBlue2.400">
+        <Heading mb="40px" fontSize={['18px', '24px']} color="navyBlue2.400">
           {isEdit ? `Editing '${title}'` : 'Create New Feedback'}
         </Heading>
         <FormControl>
-          <Flex direction="column" rowGap={'24px'} fontSize={'14px'}>
+          <Flex direction="column" rowGap={'24px'} fontSize={['13px', '14px']}>
             <Box>
-              <Heading color="navyBlue2.400" as="h4" mb="2px" fontSize={'14px'}>
+              <Heading
+                color="navyBlue2.400"
+                as="h4"
+                mb="2px"
+                fontSize={['13px', '14px']}
+              >
                 Feedback Title
               </Heading>
               <Text mb="16px">Add a short, descriptive headline</Text>
@@ -78,11 +83,17 @@ export default function FeedbackForm({
                 focusBorderColor="darkBlue.400"
                 value={feedback.title}
                 onChange={e => handleFeedbackChange(e, 'title')}
+                fontSize={['13px', '14px']}
               />
             </Box>
 
             <Box>
-              <Heading as="h4" mb="2px" fontSize={'14px'} color="navyBlue2.400">
+              <Heading
+                as="h4"
+                mb="2px"
+                fontSize={['13px', '14px']}
+                color="navyBlue2.400"
+              >
                 Category
               </Heading>
               <Text mb="16px">Choose a category for your feedback</Text>
@@ -93,6 +104,7 @@ export default function FeedbackForm({
                 focusBorderColor="darkBlue.400"
                 value={feedback.category}
                 onChange={e => handleFeedbackChange(e, 'category')}
+                fontSize={['13px', '14px']}
               >
                 {tagsObj.map(tag => (
                   <option value={tag.value} key={tag.value}>
@@ -107,7 +119,7 @@ export default function FeedbackForm({
                 <Heading
                   as="h4"
                   mb="2px"
-                  fontSize={'14px'}
+                  fontSize={['13px', '14px']}
                   color="navyBlue2.400"
                 >
                   Update Status
@@ -120,6 +132,7 @@ export default function FeedbackForm({
                   focusBorderColor="darkBlue.400"
                   value={feedback.status}
                   onChange={e => handleFeedbackChange(e, 'status')}
+                  fontSize={['13px', '14px']}
                 >
                   {statusObj.map(status => (
                     <option value={status.value} key={status.value}>
@@ -131,7 +144,12 @@ export default function FeedbackForm({
             )}
 
             <Box>
-              <Heading as="h4" mb="2px" fontSize={'14px'} color="navyBlue2.400">
+              <Heading
+                as="h4"
+                mb="2px"
+                fontSize={['13px', '14px']}
+                color="navyBlue2.400"
+              >
                 Feedback Details
               </Heading>
               <Text mb="16px">
@@ -144,10 +162,16 @@ export default function FeedbackForm({
                 focusBorderColor="darkBlue.400"
                 value={feedback.desc}
                 onChange={e => handleFeedbackChange(e, 'desc')}
+                fontSize={['13px', '14px']}
               />
             </Box>
 
-            <Flex justify={isEdit ? 'space-between' : 'flex-end'} mt="8px">
+            <Flex
+              justify={['', isEdit ? 'space-between' : 'flex-end']}
+              direction={['column', 'row']}
+              mt="8px"
+              rowGap={['16px', '0px']}
+            >
               {isEdit && (
                 <Btn
                   colorScheme="red"
@@ -159,12 +183,17 @@ export default function FeedbackForm({
                 </Btn>
               )}
 
-              <Flex>
+              <Flex
+                direction={['column', 'row']}
+                rowGap={['16px', '0px']}
+                columnGap={['0px', '16px']}
+                order={[-1, 1]}
+              >
                 <Btn
                   colorScheme="navyBlue2"
                   hoverColor="#656EA3"
                   onClick={() => dispatch({type: 'reset', payload: ''})}
-                  props={{w: 'auto', mr: '16px'}}
+                  props={{w: 'auto'}}
                 >
                   Cancel
                 </Btn>
@@ -173,6 +202,7 @@ export default function FeedbackForm({
                   hoverColor="#C75AF6"
                   onClick={() => handleAddFeedback(isEdit ? 'edit' : 'add')}
                   props={{w: 'auto'}}
+                  order={[-1, 1]}
                 >
                   {isEdit ? 'Save Changes' : 'Add Feedback'}
                 </Btn>

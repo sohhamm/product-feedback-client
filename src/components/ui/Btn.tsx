@@ -12,6 +12,7 @@ interface BtnProps {
   props?: StyleProps
   iconProps?: StyleProps
   isMobile?: boolean
+  order?: number[]
 }
 
 export default function Btn({
@@ -26,7 +27,9 @@ export default function Btn({
   props,
   iconProps,
   isMobile,
+  order,
 }: BtnProps) {
+  console.log(order)
   return (
     <Button
       fontSize={isMobile ? '13px' : '14px'}
@@ -45,6 +48,7 @@ export default function Btn({
       onClick={onClick}
       variant={variant}
       color={color ?? 'white'}
+      order={order ?? undefined}
     >
       {src && (
         <Image
