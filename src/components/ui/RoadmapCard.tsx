@@ -11,9 +11,10 @@ import Link from 'next/link'
 interface RoadmapCardProps {
   status: TStatus
   request: any
+  isMobile?:boolean
 }
 
-export default function RoadmapCard({status, request}: RoadmapCardProps) {
+export default function RoadmapCard({status, request,isMobile}: RoadmapCardProps) {
   const color = React.useMemo(() => getColor(status), [status])
 
   const handleUpvoteRequest = () => {}
@@ -59,6 +60,7 @@ export default function RoadmapCard({status, request}: RoadmapCardProps) {
             mt: '6px',
             mr: '10px',
           }}
+          isMobile={isMobile}
         />
 
         <CommentsUI noOfComments={request.comments?.length ?? 0} />
