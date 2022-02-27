@@ -1,26 +1,32 @@
+import Sidebar from '@/components/sidebar/Sidebar'
 import MobileHeader from '@/components/mobile/MobileHeader'
-import {Box, Flex, Grid, Text, useMediaQuery} from '@chakra-ui/react'
-import type {GetServerSideProps, NextPage} from 'next'
-import Head from 'next/head'
-import Sidebar from '../components/Sidebar'
-import Suggestions from '../components/suggestions/Suggestions'
-import {getFeedbacks} from '../service/feedback'
+import Suggestions from '@/components/suggestions/Suggestions'
+import type {GetServerSideProps} from 'next'
+import {Box, Flex, Grid, Spinner} from '@chakra-ui/react'
+import {useMediaQuerySSR} from '@/hooks/media-query-ssr'
+import {getFeedbacks} from '@/service/feedback'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await getFeedbacks()
   const data = JSON.parse(JSON.stringify(res))
   return {
-    props: {suggestions: data.productRequests, data: data},
+    props: {suggestions: data.productRequests},
   }
 }
 
-const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
-  const [isMobile, isTablet] = useMediaQuery([
-    '(max-width: 480px)',
-    '(min-width: 481px) and (max-width:769px)',
-  ])
+const Home = ({suggestions}: {suggestions: any; data: any}) => {
+  const isMobile = useMediaQuerySSR(480)
+  const isTablet = useMediaQuerySSR(767)
+  const isMax = useMediaQuerySSR(4000)
 
-  console.log(isMobile, isTablet)
+  const didMediaQueryResolve = isMobile || isTablet || isMax
+
+  if (!didMediaQueryResolve)
+    return (
+      <Flex h="70vh" justify={'center'} align="center">
+        <Spinner color="pink" size="xl" thickness="4px" />
+      </Flex>
+    )
 
   if (isMobile)
     return (
@@ -38,7 +44,6 @@ const Home = ({suggestions, data}: {suggestions: any; data: any}) => {
         <Box as="aside" w="100%" h="100%" mb="40px">
           <Sidebar />
         </Box>
-
         <Box as="main" w="100%" h="80vh" position={'relative'}>
           <Suggestions suggestions={suggestions} />
         </Box>

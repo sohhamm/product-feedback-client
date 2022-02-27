@@ -11,9 +11,9 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/react'
-import DownIcon from '../../../public/assets/shared/icon-arrow-down.svg'
-import UpIcon from '../../../public/assets/shared/icon-arrow-up.svg'
-import CheckIcon from '../../../public/assets/shared/icon-check.svg'
+import DownIcon from '/public/assets/shared/icon-arrow-down.svg'
+import UpIcon from '/public/assets/shared/icon-arrow-up.svg'
+import CheckIcon from '/public/assets/shared/icon-check.svg'
 
 export default function SortMenu() {
   const activeSort = useUIStore(state => state.activeSort)
@@ -32,7 +32,7 @@ export default function SortMenu() {
               />
             }
             colorScheme="navyBlue1.400"
-            fontSize="14px"
+            fontSize={['13px', '14px']}
           >
             <Flex>
               <Text
@@ -44,7 +44,7 @@ export default function SortMenu() {
               </Text>
               <Text
                 fontWeight={'bold'}
-                ml="5px"
+                ml={['2px', '5px']}
                 // _hover={{color: 'lightGray.400'}}
                 // color="lightGray"
               >
@@ -52,7 +52,12 @@ export default function SortMenu() {
               </Text>
             </Flex>
           </MenuButton>
-          <MenuList fontSize="16px" color="darkGray.400" w="255px" mt="16px">
+          <MenuList
+            fontSize={['13px', '16px']}
+            color="darkGray.400"
+            w="255px"
+            mt="16px"
+          >
             {items.map(item => (
               <Fragment key={item}>
                 <MenuItem

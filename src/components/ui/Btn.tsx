@@ -5,12 +5,14 @@ interface BtnProps {
   colorScheme?: string
   src?: string
   hoverColor?: string
-  mb?: string
+  mb?: string | string[]
   onClick?: () => void
   variant?: string
   color?: string
   props?: StyleProps
   iconProps?: StyleProps
+  isMobile?: boolean
+  order?: number[]
 }
 
 export default function Btn({
@@ -24,10 +26,12 @@ export default function Btn({
   variant = 'solid',
   props,
   iconProps,
+  isMobile,
+  order,
 }: BtnProps) {
   return (
     <Button
-      fontSize={props?.fontSize ?? '14px'}
+      fontSize={isMobile ? '13px' : '14px'}
       colorScheme={colorScheme}
       borderRadius={'10px'}
       w={props?.w ?? '158px'}
@@ -43,6 +47,7 @@ export default function Btn({
       onClick={onClick}
       variant={variant}
       color={color ?? 'white'}
+      order={order ?? undefined}
     >
       {src && (
         <Image

@@ -9,6 +9,7 @@ interface UpvotesProps {
   onMouseLeave?: MouseEventHandler<HTMLDivElement>
   isRow?: boolean
   iconProps?: any
+  isMobile?: boolean
 }
 
 export default function Upvotes({
@@ -18,6 +19,7 @@ export default function Upvotes({
   onMouseLeave,
   isRow,
   iconProps,
+  isMobile,
 }: UpvotesProps) {
   return (
     <Flex
@@ -26,8 +28,8 @@ export default function Upvotes({
       align={'center'}
       w={isRow ? '69px' : '40px'}
       pt={isRow ? '2px' : '14px'}
-      pb="8px"
-      borderRadius={'10px'}
+      pb={isMobile ? '5px' : '8px'}
+      borderRadius={'12px'}
       bg={'lightGray.400'}
       _hover={{
         bg: '#CFD7FF',
@@ -47,7 +49,7 @@ export default function Upvotes({
       <Text
         fontSize={['12px', '13px']}
         fontWeight={'bold'}
-        mt="8px"
+        mt={isMobile ? '3px' : '8px'}
         color={'navyBlue2.400'}
       >
         {upvotes}

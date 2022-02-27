@@ -5,10 +5,15 @@ import {Flex, Textarea} from '@chakra-ui/react'
 interface ReplyCommentProps {
   commentID: number
   isReply?: boolean
+  isMobile?: boolean
 }
 const MAX_CHARS = 250
 
-export default function ReplyComment({commentID, isReply}: ReplyCommentProps) {
+export default function ReplyComment({
+  commentID,
+  isReply,
+  isMobile,
+}: ReplyCommentProps) {
   const [comment, setComment] = React.useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -22,7 +27,7 @@ export default function ReplyComment({commentID, isReply}: ReplyCommentProps) {
   const handleReplyComment = () => {}
 
   return (
-    <Flex mt={['24px']} pl={['90px']}>
+    <Flex direction={['column', 'row']} mt={['24px']} pl={['0px', '90px']}>
       <Textarea
         value={comment}
         onChange={handleChange}
@@ -35,11 +40,19 @@ export default function ReplyComment({commentID, isReply}: ReplyCommentProps) {
         placeholder="Type your comment here..."
         focusBorderColor="darkBlue.400"
         mr={'16px'}
+        fontSize={['13px', '15px']}
+        mb={['16px', '0px']}
       />
 
-      <Btn onClick={handleReplyComment} hoverColor="#C75AF6">
-        Post Reply
-      </Btn>
+      <Flex justify={['flex-end', 'flex-start']}>
+        <Btn
+          onClick={handleReplyComment}
+          hoverColor="#C75AF6"
+          isMobile={isMobile}
+        >
+          Post Reply
+        </Btn>
+      </Flex>
     </Flex>
   )
 }

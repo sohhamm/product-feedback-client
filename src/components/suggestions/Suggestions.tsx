@@ -41,12 +41,16 @@ export default function Suggestions({suggestions, isMobile}: SuggestionsProps) {
           bg="navyBlue1.400"
           py="14px"
           px="16px"
-          mx="-39px"
+          mx="-24px"
         >
           <Flex columnGap={'16px'} alignItems={'center'}>
             <SortMenu />
           </Flex>
-          <Btn src={PlusIcon.src} onClick={() => router.push('/feedback-new')}>
+          <Btn
+            src={PlusIcon.src}
+            onClick={() => router.push('/feedback-new')}
+            isMobile
+          >
             Add Feedback
           </Btn>
         </Flex>
@@ -80,7 +84,7 @@ export default function Suggestions({suggestions, isMobile}: SuggestionsProps) {
       )}
 
       {filteredSuggestions.length === 0 ? (
-        <EmptyState />
+        <EmptyState isMobile={isMobile} />
       ) : (
         <Flex
           direction={'column'}
