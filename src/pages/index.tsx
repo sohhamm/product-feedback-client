@@ -1,3 +1,4 @@
+import * as React from 'react'
 import Sidebar from '@/components/sidebar/Sidebar'
 import MobileHeader from '@/components/mobile/MobileHeader'
 import Suggestions from '@/components/suggestions/Suggestions'

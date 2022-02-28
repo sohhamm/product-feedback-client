@@ -3,7 +3,7 @@ import Upvotes from '@/components/ui/Upvotes'
 import Tag from '@/components/ui/Tag'
 import CommentsUI from '@/components/ui/CommentsUI'
 import {useRouter} from 'next/router'
-import {Flex, Heading, Image, Text} from '@chakra-ui/react'
+import {Flex, Heading, Text} from '@chakra-ui/react'
 
 export default function SuggestionCard({
   suggestion,

@@ -18,6 +18,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/jost": "^4.5.2",
+    "focus-visible": "^5.2.0",
     "framer-motion": "^5",
     "next": "12.0.9",
     "react": "17.0.2",
