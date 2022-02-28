@@ -1,30 +1,8 @@
 import * as React from 'react'
 import FeedbackForm from '@/components/feedback-form/FeedbackForm'
-import {Feedback, HandleFeedbackChange} from '@/types/types'
-
-const feedbackInitialState = {
-  title: '',
-  category: 'FEATURE',
-  desc: '',
-}
-
-const feedbackReducer = (
-  state: Feedback,
-  action: {type: string; payload: string},
-) => {
-  switch (action.type) {
-    case 'title':
-      return {...state, title: action.payload}
-    case 'category':
-      return {...state, category: action.payload}
-    case 'desc':
-      return {...state, desc: action.payload}
-    case 'reset':
-      return {...feedbackInitialState}
-    default:
-      throw new Error(`unhandled action type`)
-  }
-}
+import {HandleFeedbackChange} from '@/types/types'
+import {useToast} from '@chakra-ui/react'
+import {feedbackInitialState, feedbackReducer} from '@/utils/utils'
 
 export default function FeedbackNew() {
   const [feedback, dispatch] = React.useReducer(
@@ -32,11 +10,26 @@ export default function FeedbackNew() {
     feedbackInitialState,
   )
 
+  const toast = useToast()
+
   const handleFeedbackChange: HandleFeedbackChange = (e, key) => {
     dispatch({type: key, payload: e.target.value})
   }
 
-  const handleAddFeedback = (type: string) => {}
+  const handleAddFeedback = () => {
+    toast({
+      title: 'Feedback submitted! 🥳',
+      status: 'success',
+      variant: 'subtle',
+      position: 'top',
+      duration: 5000,
+      isClosable: true,
+    })
+
+    // create feedback
+
+    dispatch({type: 'reset', payload: ''})
+  }
 
   return (
     <FeedbackForm

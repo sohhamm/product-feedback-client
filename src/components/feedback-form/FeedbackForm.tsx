@@ -23,12 +23,18 @@ export default function FeedbackForm({
   feedback,
   dispatch,
   handleAddFeedback,
+  handleEditFeedback,
   isEdit,
   title,
   handleDeleteFeedback,
 }: FeedbackFormProps) {
   const router = useRouter()
   const {id} = router.query
+
+  const handleSubmit = () => {
+    if (typeof handleAddFeedback === 'function') handleAddFeedback()
+    if (typeof handleEditFeedback === 'function') handleEditFeedback()
+  }
 
   return (
     <Box maxW="540px" mx="auto" mt={['-60px', '0px']}>
@@ -214,9 +220,10 @@ export default function FeedbackForm({
 
                 <Btn
                   hoverColor="#C75AF6"
-                  onClick={() => handleAddFeedback(isEdit ? 'edit' : 'add')}
+                  onClick={handleSubmit}
                   props={{w: 'auto'}}
                   order={[-1, 1]}
+                  isDisabled={!feedback.title.length || !feedback.desc.length}
                 >
                   {isEdit ? 'Save Changes' : 'Add Feedback'}
                 </Btn>
