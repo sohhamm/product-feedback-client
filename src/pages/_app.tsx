@@ -1,17 +1,27 @@
-import '../styles/globals.css'
-import Layout from '../layout/Layout'
-import type {AppProps} from 'next/app'
-import {ChakraProvider} from '@chakra-ui/react'
-import {theme} from '../styles/chakra-theme'
+import '@/styles/globals.css'
+import Layout from '@/layout/Layout'
+import ErrorFallback from '@/layout/ErrorFallback'
 import '@fontsource/jost/400.css'
 import '@fontsource/jost/600.css'
 import '@fontsource/jost/700.css'
+import {ChakraProvider} from '@chakra-ui/react'
+import {theme} from '../styles/chakra-theme'
+import {ErrorBoundary} from 'react-error-boundary'
+import type {AppProps} from 'next/app'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <Component {...pageProps} />
+        <ErrorBoundary
+          FallbackComponent={ErrorFallback}
+          onReset={() => {
+            // reset the state of your app so the error doesn't happen again
+            window.location.reload()
+          }}
+        >
+          <Component {...pageProps} />
+        </ErrorBoundary>
       </Layout>
     </ChakraProvider>
   )
