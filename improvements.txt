@@ -1,2 +1,7 @@
-1. change scroll bar css
-2. when comments is zero add opacity for suggestions card
+1. in mobile add scroll to top button
+2. paginated the feedbacks
+
+
+
+
+add animations using framer motion

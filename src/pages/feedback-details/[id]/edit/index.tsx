@@ -1,9 +1,11 @@
 import * as React from 'react'
 import FeedbackForm from '@/components/feedback-form/FeedbackForm'
 import {HandleFeedbackChange} from '@/types/types'
-import {feedbackInitialState, feedbackReducer} from '@/utils/utils'
+import {feedbackReducer} from '@/utils/utils'
 import {GetServerSideProps} from 'next/types'
 import {getFeedbacks} from '@/service/feedback'
+import {useToast} from '@chakra-ui/react'
+import {useRouter} from 'next/router'
 
 export const getServerSideProps: GetServerSideProps = async ({params}) => {
   const _res = await getFeedbacks()
@@ -22,20 +24,46 @@ export default function FeedbackEdit({suggestion}: {suggestion: any}) {
     status: suggestion.status,
   })
 
+  const toast = useToast()
+  const router = useRouter()
+
   const handleFeedbackChange: HandleFeedbackChange = (e, key) => {
     dispatch({type: key, payload: e.target.value})
   }
 
-  const handleAddFeedback = () => {}
+  const handleEditFeedback = () => {
+    toast({
+      title: 'Successfully Edited! 🖊️',
+      status: 'success',
+      variant: 'subtle',
+      position: 'top',
+      duration: 5000,
+      isClosable: true,
+    })
 
-  const handleDeleteFeedback = () => {}
+    // edit feedback
+
+    // dispatch({type: 'reset', payload: ''})
+  }
+
+  const handleDeleteFeedback = () => {
+    toast({
+      title: 'Successfully Deleted ❌',
+      status: 'success',
+      variant: 'subtle',
+      position: 'top',
+      duration: 3000,
+      isClosable: true,
+    })
+    router.push('/')
+  }
 
   return (
     <FeedbackForm
       feedback={feedback}
       dispatch={dispatch}
       handleFeedbackChange={handleFeedbackChange}
-      handleAddFeedback={handleAddFeedback}
+      handleEditFeedback={handleEditFeedback}
       isEdit
       title={suggestion.title}
       handleDeleteFeedback={handleDeleteFeedback}

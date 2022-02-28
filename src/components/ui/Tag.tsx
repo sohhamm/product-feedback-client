@@ -4,9 +4,11 @@ import {Box} from '@chakra-ui/react'
 export default function Tag({
   children,
   isViewOnly,
+  onClose,
 }: {
   children: string
   isViewOnly?: boolean
+  onClose?: () => void
 }) {
   const activeTag = useUIStore(state => state.activeTag)
   const setActiveTag = useUIStore(state => state.setActiveTag)
@@ -15,6 +17,7 @@ export default function Tag({
   const handleClick = () => {
     if (isViewOnly) return
     setActiveTag(children)
+    if (typeof onClose === 'function') onClose()
   }
   return (
     <Box

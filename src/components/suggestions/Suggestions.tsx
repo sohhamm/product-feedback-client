@@ -1,3 +1,4 @@
+import * as React from 'react'
 import Btn from '../ui/Btn'
 import SortMenu from '../ui/SortMenu'
 import SuggestionCard from '../ui/SuggestionCard'
@@ -7,8 +8,7 @@ import IllustrationIcon from '/public/assets/suggestions/icon-suggestions.svg'
 import {useRouter} from 'next/router'
 import {sorter} from '../../utils/utils'
 import {Flex, Image, Text} from '@chakra-ui/react'
-import {useUIStore} from '../../store/ui'
-import {useMemo} from 'react'
+import {useUIStore} from '@/store/ui'
 
 interface SuggestionsProps {
   suggestions: any
@@ -20,7 +20,7 @@ export default function Suggestions({suggestions, isMobile}: SuggestionsProps) {
   const activeTag = useUIStore(state => state.activeTag)
   const router = useRouter()
 
-  const filteredSuggestions = useMemo(
+  const filteredSuggestions = React.useMemo(
     () =>
       suggestions.filter((s: any) => {
         if (activeTag !== 'All' && s.category !== activeTag.toLowerCase())

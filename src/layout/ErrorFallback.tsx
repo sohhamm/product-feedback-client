@@ -1,11 +1,14 @@
-import Btn from './Btn'
+import Btn from '@/components/ui/Btn'
 import EmptyIcon from '/public/assets/suggestions/illustration-empty.svg'
-import PlusIcon from '/public/assets/shared/icon-plus.svg'
-import {Flex, Heading, Image, Text} from '@chakra-ui/react'
-import {useRouter} from 'next/router'
+import {Flex, Image, Heading, Text} from '@chakra-ui/react'
 
-export default function EmptyState({isMobile}: {isMobile?: boolean}) {
-  const router = useRouter()
+export default function ErrorFallback({
+  error,
+  resetErrorBoundary,
+}: {
+  error?: any
+  resetErrorBoundary?: any
+}) {
   return (
     <Flex
       w="100%"
@@ -24,8 +27,9 @@ export default function EmptyState({isMobile}: {isMobile?: boolean}) {
         fontSize={['18px', '24px']}
         color={'navyBlue2.400'}
       >
-        There is no feedback yet.
+        Something went wrong!
       </Heading>
+
       <Text
         maxW="410px"
         mb="48px"
@@ -33,17 +37,11 @@ export default function EmptyState({isMobile}: {isMobile?: boolean}) {
         fontSize={['13px', '16px']}
         textAlign={'center'}
       >
-        Got a suggestion? Found a bug that needs to be squashed? We love hearing
-        about new ideas to improve our app.
+        {error.message}
       </Text>
 
-      <Btn
-        src={PlusIcon.src}
-        hoverColor="#C75AF6"
-        onClick={() => router.push('/feedback-new')}
-        isMobile
-      >
-        Add Feedback
+      <Btn hoverColor="#C75AF6" onClick={resetErrorBoundary} isMobile>
+        Reset Error
       </Btn>
     </Flex>
   )

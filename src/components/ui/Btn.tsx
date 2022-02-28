@@ -13,6 +13,7 @@ interface BtnProps {
   iconProps?: StyleProps
   isMobile?: boolean
   order?: number[]
+  isDisabled?: boolean
 }
 
 export default function Btn({
@@ -28,6 +29,7 @@ export default function Btn({
   iconProps,
   isMobile,
   order,
+  isDisabled,
 }: BtnProps) {
   return (
     <Button
@@ -48,6 +50,7 @@ export default function Btn({
       variant={variant}
       color={color ?? 'white'}
       order={order ?? undefined}
+      isDisabled={isDisabled}
     >
       {src && (
         <Image

@@ -7,8 +7,15 @@ export interface FeedbackFormProps {
     type: string
     payload: string
   }>
-  handleAddFeedback: (type: string) => void
+  handleAddFeedback?: () => void
+  handleEditFeedback?: () => void
   handleDeleteFeedback?: () => void
   isEdit?: boolean | undefined
   title?: string
+}
+
+export interface RoadmapDataProps {
+  planned: any[]
+  inProgress: any[]
+  live: any[]
 }
