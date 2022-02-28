@@ -12,3 +12,9 @@ export interface FeedbackFormProps {
   isEdit?: boolean | undefined
   title?: string
 }
+
+export interface RoadmapDataProps {
+  planned: any[]
+  inProgress: any[]
+  live: any[]
+}

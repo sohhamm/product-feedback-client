@@ -2,8 +2,9 @@ import * as React from 'react'
 import Sidebar from '@/components/sidebar/Sidebar'
 import MobileHeader from '@/components/mobile/MobileHeader'
 import Suggestions from '@/components/suggestions/Suggestions'
+import Loader from '@/components/ui/Loader'
 import type {GetServerSideProps} from 'next'
-import {Box, Flex, Grid, Spinner} from '@chakra-ui/react'
+import {Box, Flex, Grid} from '@chakra-ui/react'
 import {useMediaQuerySSR} from '@/hooks/media-query-ssr'
 import {getFeedbacks} from '@/service/feedback'
 
@@ -22,12 +23,7 @@ const Home = ({suggestions}: {suggestions: any; data: any}) => {
 
   const didMediaQueryResolve = isMobile || isTablet || isMax
 
-  if (!didMediaQueryResolve)
-    return (
-      <Flex h="70vh" justify={'center'} align="center">
-        <Spinner color="pink" size="xl" thickness="4px" />
-      </Flex>
-    )
+  if (!didMediaQueryResolve) return <Loader />
 
   if (isMobile)
     return (
