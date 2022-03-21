@@ -7,21 +7,28 @@ import type {GetServerSideProps} from 'next'
 import {Box, Flex, Grid} from '@chakra-ui/react'
 import {useMediaQuerySSR} from '@/hooks/media-query-ssr'
 import {getFeedbacks} from '@/service/feedback'
+import {useDataStore} from '@/store/data'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await getFeedbacks()
   const data = JSON.parse(JSON.stringify(res))
   return {
-    props: {suggestions: data.productRequests},
+    props: {feedback: data.productRequests},
   }
 }
 
-const Home = ({suggestions}: {suggestions: any; data: any}) => {
+const Home = ({feedback}: {feedback: any; data: any}) => {
+  const setSuggestions = useDataStore(state => state.setSuggestions)
+  const suggestions = useDataStore(state => state.suggestions)
   const isMobile = useMediaQuerySSR(480)
   const isTablet = useMediaQuerySSR(767)
   const isMax = useMediaQuerySSR(4000)
 
   const didMediaQueryResolve = isMobile || isTablet || isMax
+
+  React.useEffect(() => {
+    setSuggestions(feedback)
+  }, [])
 
   if (!didMediaQueryResolve) return <Loader />
 
