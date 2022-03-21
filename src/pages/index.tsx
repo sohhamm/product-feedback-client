@@ -30,6 +30,8 @@ const Home = ({feedback}: {feedback: any; data: any}) => {
     setSuggestions(feedback)
   }, [])
 
+  console.log(suggestions)
+
   if (!didMediaQueryResolve) return <Loader />
 
   if (isMobile)

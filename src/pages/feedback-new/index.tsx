@@ -3,12 +3,17 @@ import FeedbackForm from '@/components/feedback-form/FeedbackForm'
 import {HandleFeedbackChange} from '@/types/types'
 import {useToast} from '@chakra-ui/react'
 import {feedbackInitialState, feedbackReducer} from '@/utils/utils'
+import {useDataStore} from '@/store/data'
 
 export default function FeedbackNew() {
   const [feedback, dispatch] = React.useReducer(
     feedbackReducer,
     feedbackInitialState,
   )
+  const setSuggestions = useDataStore(state => state.setSuggestions)
+  const suggestions = useDataStore(state => state.suggestions)
+
+  console.log(suggestions)
 
   const toast = useToast()
 
@@ -17,6 +22,23 @@ export default function FeedbackNew() {
   }
 
   const handleAddFeedback = () => {
+    // TODO create feedback
+    setSuggestions((oldSuggestions: any) => {
+      const lastID = oldSuggestions[oldSuggestions.length - 1].id
+      return [
+        ...oldSuggestions,
+        {
+          id: lastID + 1,
+          title: feedback.title,
+          category: feedback.category,
+          upvotes: 0,
+          status: 'suggestion',
+          description: feedback.desc,
+          comments: null,
+        },
+      ]
+    })
+
     toast({
       title: 'Feedback submitted! 🥳',
       status: 'success',
@@ -25,8 +47,6 @@ export default function FeedbackNew() {
       duration: 5000,
       isClosable: true,
     })
-
-    // create feedback
 
     dispatch({type: 'reset', payload: ''})
   }
