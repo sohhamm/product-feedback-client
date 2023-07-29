@@ -28,6 +28,7 @@ const Home = ({feedback}: {feedback: any; data: any}) => {
 
   React.useEffect(() => {
     setSuggestions(feedback)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   console.log(suggestions)
