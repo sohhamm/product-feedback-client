@@ -53,3 +53,5 @@ export const getColor = (status: TStatus) => {
       return 'lightBlue.400'
   }
 }
+
+export const isProd = process.env.NODE_ENV === 'production'

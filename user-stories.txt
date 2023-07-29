@@ -6,6 +6,3 @@
 - Filter suggestions by category
 - Add comments and replies to a product feedback request
 - Upvote product feedback requests
-- **Bonus**: Keep track of any changes, even after refreshing the browser
-  (`localStorage` could be used for this if you're not building out a full-stack
-  app)

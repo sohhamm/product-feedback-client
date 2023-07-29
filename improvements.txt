@@ -1,7 +1,0 @@
-1. in mobile add scroll to top button
-2. paginated the feedbacks
-
-
-
-
-add animations using framer motion

@@ -8,7 +8,6 @@ import {theme} from '../styles/chakra-theme'
 import {ErrorBoundary} from 'react-error-boundary'
 import type {AppProps} from 'next/app'
 import '@/styles/globals.css'
-import 'focus-visible/dist/focus-visible'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
